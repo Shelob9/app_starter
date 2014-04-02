@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
             $('#content').fadeTo(200,1);
             // Updates the menu
             var request = $(data);
-            $('#access').replaceWith($('#access', request)); 
+            $('#access').replaceWith($('#access', request));
         });
     }
 });
