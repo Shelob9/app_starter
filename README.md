@@ -19,4 +19,4 @@ It incorporates:
 
 * History.js (https://github.com/browserstate/history.js/) Copyright (c) 2011, Benjamin Arthur Lupton Benjamin Lupton (http://balupton.com/) Free BSD License
 
-* Some JavaScript adapted from Ajaxify Wordpress Site 1.5.2 ( http://www.youngtechleads.com/aws-plug-in-for-wordpress) (c) Manish Kumar Agarwal (http://www.youngtechleads.com) License: GPL v3
+* Some JavaScript adapted from a tutorial by Devin Price http://wptheming.com/2011/12/ajax-themes/

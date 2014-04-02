@@ -10,16 +10,6 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsSetByUser": 0
 		},
-	"\/ajaxify.min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/ajaxify.min.js",
-		"outputAbbreviatedPath": "\/min\/ajaxify.min-ck.js",
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/archive.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -153,17 +143,7 @@
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/ajaxify.js",
-		"outputAbbreviatedPath": "\/js\/ajaxify.min.js",
-		"outputPathIsSetByUser": 1,
-		"outputStyle": 2,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/ajaxify.min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/ajaxify.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/ajaxify.min-ck.js",
+		"outputAbbreviatedPath": "\/js\/min\/ajaxify-ck.js",
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -1411,13 +1391,13 @@
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/js\/history.js",
 			"position": 0,
-			"type": 0
+			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/js\/ajaxify.js",
 			"position": 1,
-			"type": 0
+			"type": 1
 			}
 		],
 	"\/js\/foundation\/foundation.js": [
