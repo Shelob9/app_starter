@@ -7806,21 +7806,20 @@ blockquote p {
 .vcard {
   display: inline-block;
   margin: 0 0 1.25rem 0;
-  border: 1px solid #dddddd;
   padding: 0.625rem 0.75rem; }
-  /* line 489, sass/foundation/components/_type.scss */
+  /* line 488, sass/foundation/components/_type.scss */
   .vcard li {
     margin: 0;
     display: block; }
-  /* line 493, sass/foundation/components/_type.scss */
+  /* line 492, sass/foundation/components/_type.scss */
   .vcard .fn {
     font-weight: bold;
     font-size: 0.9375rem; }
 
-/* line 500, sass/foundation/components/_type.scss */
+/* line 499, sass/foundation/components/_type.scss */
 .vevent .summary {
   font-weight: bold; }
-/* line 502, sass/foundation/components/_type.scss */
+/* line 501, sass/foundation/components/_type.scss */
 .vevent abbr {
   cursor: default;
   text-decoration: none;
@@ -7829,23 +7828,23 @@ blockquote p {
   padding: 0 0.0625rem; }
 
 @media only screen and (min-width: 40.063em) {
-  /* line 513, sass/foundation/components/_type.scss */
+  /* line 512, sass/foundation/components/_type.scss */
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.4; }
 
-  /* line 514, sass/foundation/components/_type.scss */
+  /* line 513, sass/foundation/components/_type.scss */
   h1 {
     font-size: 2.75rem; }
 
-  /* line 515, sass/foundation/components/_type.scss */
+  /* line 514, sass/foundation/components/_type.scss */
   h2 {
     font-size: 2.3125rem; }
 
-  /* line 516, sass/foundation/components/_type.scss */
+  /* line 515, sass/foundation/components/_type.scss */
   h3 {
     font-size: 1.6875rem; }
 
-  /* line 517, sass/foundation/components/_type.scss */
+  /* line 516, sass/foundation/components/_type.scss */
   h4 {
     font-size: 1.4375rem; } }
 /*
@@ -7854,12 +7853,12 @@ blockquote p {
  * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
  * Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
 */
-/* line 528, sass/foundation/components/_type.scss */
+/* line 527, sass/foundation/components/_type.scss */
 .print-only {
   display: none !important; }
 
 @media print {
-  /* line 530, sass/foundation/components/_type.scss */
+  /* line 529, sass/foundation/components/_type.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -7867,72 +7866,72 @@ blockquote p {
     box-shadow: none !important;
     text-shadow: none !important; }
 
-  /* line 537, sass/foundation/components/_type.scss */
+  /* line 536, sass/foundation/components/_type.scss */
   a,
   a:visited {
     text-decoration: underline; }
 
-  /* line 539, sass/foundation/components/_type.scss */
+  /* line 538, sass/foundation/components/_type.scss */
   a[href]:after {
     content: " (" attr(href) ")"; }
 
-  /* line 541, sass/foundation/components/_type.scss */
+  /* line 540, sass/foundation/components/_type.scss */
   abbr[title]:after {
     content: " (" attr(title) ")"; }
 
-  /* line 544, sass/foundation/components/_type.scss */
+  /* line 543, sass/foundation/components/_type.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-  /* line 548, sass/foundation/components/_type.scss */
+  /* line 547, sass/foundation/components/_type.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
 
-  /* line 554, sass/foundation/components/_type.scss */
+  /* line 553, sass/foundation/components/_type.scss */
   thead {
     display: table-header-group;
     /* h5bp.com/t */ }
 
-  /* line 556, sass/foundation/components/_type.scss */
+  /* line 555, sass/foundation/components/_type.scss */
   tr,
   img {
     page-break-inside: avoid; }
 
-  /* line 559, sass/foundation/components/_type.scss */
+  /* line 558, sass/foundation/components/_type.scss */
   img {
     max-width: 100% !important; }
 
   @page {
     margin: 0.5cm; }
-  /* line 563, sass/foundation/components/_type.scss */
+  /* line 562, sass/foundation/components/_type.scss */
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3; }
 
-  /* line 570, sass/foundation/components/_type.scss */
+  /* line 569, sass/foundation/components/_type.scss */
   h2,
   h3 {
     page-break-after: avoid; }
 
-  /* line 573, sass/foundation/components/_type.scss */
+  /* line 572, sass/foundation/components/_type.scss */
   .hide-on-print {
     display: none !important; }
 
-  /* line 574, sass/foundation/components/_type.scss */
+  /* line 573, sass/foundation/components/_type.scss */
   .print-only {
     display: block !important; }
 
-  /* line 575, sass/foundation/components/_type.scss */
+  /* line 574, sass/foundation/components/_type.scss */
   .hide-for-print {
     display: none !important; }
 
-  /* line 576, sass/foundation/components/_type.scss */
+  /* line 575, sass/foundation/components/_type.scss */
   .show-for-print {
     display: inherit !important; } }
 /* line 141, sass/foundation/components/_type.scss */
@@ -8718,3 +8717,11 @@ h1.site-title a, h1.site-title a:visited {
   /* line 37, sass/style.scss */
   .left-off-canvas-menu ul a, .right-off-canvas-menu ul a {
     color: #e7e7e7; }
+
+/* line 41, sass/style.scss */
+#comments {
+  padding-top: 48px; }
+
+/* line 45, sass/style.scss */
+h1.widget-title {
+  font-size: 2rem; }
