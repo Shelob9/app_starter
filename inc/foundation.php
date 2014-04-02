@@ -1,55 +1,140 @@
 <?php
 
-
-
+/**
+ * Sets the classes for #primary
+ *
+ * @since 0.0.1
+ */
 function app_starter_primary_class() {
 	$classes = 'row';
+
+	/**
+	 * Override the classes for #primary
+	 *
+	 * @params string $classes Classes to set
+	 *
+	 * @since 0.0.1
+	 */
 	$classes = apply_filters( 'app_starter_primary_class', $classes );
 
 	echo $classes;
 
 }
 
+/**
+ * Sets the classes for #main
+ *
+ * @since 0.0.1
+ */
 function app_starter_main_class() {
 	$classes = 'large-9 small-12 columns';
 	if ( do_action( 'app_starter_no_sidebar' ) ) {
 		$classes = 'large-12 small-12';
 	}
+
+	/**
+	 * Override the classes for #main
+	 *
+	 * @params string $classes Classes to set
+	 *
+	 * @since 0.0.1
+	 */
 	$classes = apply_filters( 'app_starter_main_class', $classes );
 
 	echo $classes;
 
 }
 
+/**
+ * Sets the classes for #secondary
+ *
+ * @since 0.0.1
+ */
 function app_starter_sidebar_class() {
 	$classes = 'large-3 small-12 columns';
+
+	/**
+	 * Override the classes for #secondary
+	 *
+	 * @params string $classes Classes to set
+	 *
+	 * @since 0.0.1
+	 */
 	$classes = apply_filters( 'app_starter_sidebar_class', $classes );
 
 	echo $classes;
 
 }
 
+/**
+ * Sets the classes for .site-footer
+ *
+ * @since 0.0.1
+ */
 function app_starter_footer_class() {
 	$classes = 'row';
+
+	/**
+	 * Override the classes for .site-footer
+	 *
+	 * @params string $classes Classes to set
+	 *
+	 * @since 0.0.1
+	 */
 	$classes = apply_filters( 'app_starter_footer_class', $classes );
 
 	echo $classes;
 }
 
+/**
+ * Sets the classes for .site-info
+ *
+ * @since 0.0.1
+ */
 function app_starter_site_info_class() {
 	$classes = 'large-12 small-12';
+
+	/**
+	 * Override the classes for .site-info
+	 *
+	 * @params string $classes Classes to set
+	 *
+	 * @since 0.0.1
+	 */
 	$classes = apply_filters( 'app_starter_site_info_class', $classes );
 
 	echo $classes;
 }
 
+/**
+ * Enqueue Foundation JS
+ *
+ * @since 0.0.1
+ */
 add_action( 'wp_enqueue_scripts', 'app_starter_foundation_enqueue', 20 );
 function app_starter_foundation_enqueue() {
 	wp_enqueue_script( 'foundation', get_stylesheet_directory_uri().'/js/foundation.min.js', array( 'jquery' ), '5.2.1', true );
 }
 
+/**
+ * Off Canvas menus
+ *
+ * @since 0.0.1
+ */
 function app_starter_off_canvas() {
+	/**
+	 *	Whether to use off canvas menu on right side or not.
+	 *
+	 *  @since 0.0.1
+	 */
 	if ( !do_action( 'app_starter_use_off_canvas_left') ) :
+
+		/**
+		 * Use to add content after the left off canvas menu.
+		 *
+		 * @since 0.0.1
+		 */
+		do_action( 'app_starter_before_off_canvas_left');
 	?>
 		<aside class="left-off-canvas-menu">
 			<?php
@@ -73,12 +158,28 @@ function app_starter_off_canvas() {
 			);
 			wp_nav_menu( $defaults );
 
+			/**
+			 * Use to add content after the left off canvas menu.
+			 *
+			 * @since 0.0.1
+			 */
 			do_action( 'app_starter_after_off_canvas_left');
 			?>
 		</aside><!--/aside.left-off-canvas-menu -->
 	<?php
 		endif;
+		/**
+		 *	Whether to use off canvas menu on right side or not.
+		 *
+		 *  @since 0.0.1
+		 */
 		if ( !do_action( 'app_starter_use_off_canvas_right') ) :
+			/**
+			 * Use to add content after the right off canvas menu.
+			 *
+			 * @since 0.0.1
+			 */
+			do_action( 'app_starter_before_off_canvas_right');
 	?>
 
 	<aside class="right-off-canvas-menu">
@@ -103,6 +204,11 @@ function app_starter_off_canvas() {
 		);
 		wp_nav_menu( $defaults );
 
+		/**
+		 * Use to add content after the right off canvas menu.
+		 *
+		 * @since 0.0.1
+		 */
 		do_action( 'app_starter_after_off_canvas_right');
 		?>
 	</aside><!--/aside.left-off-canvas-menu -->

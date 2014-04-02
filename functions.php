@@ -7,6 +7,8 @@
 
 /**
  * Define version in a constant
+ *
+ * @since 0.0.1
  */
 if ( !defined( 'APP_STARTER_VERSION' ) ) {
 	define( 'APP_STARTER_VERSION', '0.0.1' );
@@ -137,14 +139,23 @@ require get_template_directory() . '/inc/foundation.php';
 
 /**
  * Sidebar function
+ *
+ * @since 0.0.1
  */
 function app_starter_sidebar( $name = null ) {
 	/**
 	 * Filter to override which sidebar we are using.
 	 *
 	 * @see https://core.trac.wordpress.org/ticket/26636
+	 *
+	 * @since 0.0.1
 	 */
 	$name = apply_filters('app_starter_get_sidebar', $name);
+	/**
+	 * Action to prevent sidebar
+	 *
+	 * @since 0.0.1
+	 */
 	if ( ! do_action( 'app_starter_no_sidebar' ) ) {
 		get_sidebar( $name );
 	}
