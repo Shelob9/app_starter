@@ -51,6 +51,7 @@ get_header(); ?>
 			</section><!-- .error-404 -->
 
 		</main><!-- #main -->
+		<?php app_starter_sidebar(); ?>
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>
