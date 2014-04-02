@@ -231,3 +231,41 @@ if ( ! function_exists( 'app_starter_off_canvas' ) ) {
 		endif;
 	}
 }
+
+
+/**
+ * Output the Offcanvas left widget area
+ *
+ * Note: will go after the offcanvas menu. To go before remove the action and hook to 'app_starter_before_off_canvas_left'
+ *
+ * @since 0.0.1
+ */
+if ( apply_filters( 'app_starter_use_off_canvas_left', true ) === true ) {
+	if ( !function_exists( 'app_starter_off_canvas_widgets_left' ) ) {
+		add_action( 'app_starter_after_off_canvas_left', 'app_starter_off_canvas_widgets_left' );
+		function app_starter_off_canvas_widgets_left() {
+			echo '<aside class="offcanvas-widget-area" id="offcanvas-left-widget-area">';
+				dynamic_sidebar( 'offcanvas-left' );
+			echo '</aside><!--#offcanvas-left-widget-area-->';
+		}
+	} //endif !function_exists
+} //endif filter === true
+
+/**
+ * Output the Offcanvas right widget area
+ *
+ * Note: will go after the offcanvas menu. To go before remove the action and hook to 'app_starter_before_off_canvas_right'
+ *
+ * @since 0.0.1
+ */
+if ( apply_filters( 'app_starter_use_off_canvas_right', true ) === true ) {
+	if ( !function_exists( 'app_starter_off_canvas_widgets_right' ) ) {
+		add_action( 'app_starter_after_off_canvas_right', 'app_starter_off_canvas_widgets_right' );
+		function app_starter_off_canvas_widgets_right() {
+			echo '<aside class="offcanvas-widget-area" id="offcanvas-right-widget-area">';
+			dynamic_sidebar( 'offcanvas-right' );
+			echo '</aside><!--#offcanvas-right-widget-area-->';
+		}
+	} //endif !function_exists
+} //endif filter === true
+

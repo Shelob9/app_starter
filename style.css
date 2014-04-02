@@ -8725,3 +8725,7 @@ h1.site-title a, h1.site-title a:visited {
 /* line 45, sass/style.scss */
 h1.widget-title {
   font-size: 2rem; }
+
+/* line 49, sass/style.scss */
+.offcanvas-widget-area {
+  padding: 24px 16px; }
