@@ -11,13 +11,8 @@ Text Domain: app_starter
 Domain Path: /languages/
 Tags:
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+See README.md for full license info.
 
-This theme is based on on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc and _sassy_s by Amy Hendrix https://github.com/sabreuse/sassy_s
-
-It incorporates Foundation (http://foundation.zurb.com/), (c) 2013 ZURB (http://zurb.com/).
-Foundation is licensed under the terms of the MIT Open Source License.
 */
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 /**
@@ -8708,18 +8703,18 @@ th.hide-for-touch {
 .touch th.show-for-touch {
   display: table-cell !important; }
 
-/* line 35, sass/style.scss */
+/* line 30, sass/style.scss */
 .row {
   max-width: 98%; }
 
-/* line 37, sass/style.scss */
+/* line 32, sass/style.scss */
 h1.site-title a, h1.site-title a:visited {
   color: white; }
 
-/* line 39, sass/style.scss */
+/* line 34, sass/style.scss */
 .left-off-canvas-menu ul, .right-off-canvas-menu ul {
   padding-top: 24px;
   list-style: none; }
-  /* line 42, sass/style.scss */
+  /* line 37, sass/style.scss */
   .left-off-canvas-menu ul a, .right-off-canvas-menu ul a {
     color: #e7e7e7; }

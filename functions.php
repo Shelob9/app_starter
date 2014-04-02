@@ -101,6 +101,12 @@ function app_starter_scripts() {
 
 	wp_enqueue_script( 'app-starter', get_stylesheet_directory_uri().'/js/app_starter.min.js', array( 'jquery', 'foundation' ), APP_STARTER_VERSION, true );
 
+	//data for ajaxing
+	$data = array(
+		'rootUrl'	=>	site_url(),
+		'loader'	=>	get_stylesheet_directory_uri().'/inc/preloader.gif',
+	);
+	wp_localize_script( 'app-starter', 'app_starter', $data );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

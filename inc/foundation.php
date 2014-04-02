@@ -149,7 +149,7 @@ if ( ! function_exists( 'app_starter_off_canvas' ) ) {
 			 */
 			do_action( 'app_starter_before_off_canvas_left');
 		?>
-			<aside class="left-off-canvas-menu">
+			<aside class="left-off-canvas-menu menu">
 				<?php
 				$defaults = array(
 					'theme_location'  => 'off-canvas-left',
@@ -195,7 +195,7 @@ if ( ! function_exists( 'app_starter_off_canvas' ) ) {
 				do_action( 'app_starter_before_off_canvas_right');
 		?>
 
-		<aside class="right-off-canvas-menu">
+		<aside class="right-off-canvas-menu menu">
 			<?php
 			$defaults = array(
 				'theme_location'  => 'off-canvas-right',
