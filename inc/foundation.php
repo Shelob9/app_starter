@@ -31,7 +31,7 @@ if ( ! function_exists( 'app_starter_main_class' ) ) :
  */
 function app_starter_main_class() {
 	$classes = 'large-9 small-12 columns';
-	if ( do_action( 'app_starter_no_sidebar' ) ) {
+	if ( apply_filters( 'app_starter_no_sidebar', true ) === true ) {
 		$classes = 'large-12 small-12';
 	}
 
