@@ -140,7 +140,7 @@ if ( ! function_exists( 'app_starter_off_canvas' ) ) {
 		 *
 		 *  @since 0.0.1
 		 */
-		if ( !do_action( 'app_starter_use_off_canvas_left') ) :
+		if ( apply_filters( 'app_starter_use_off_canvas_left', true ) === true ) :
 
 			/**
 			 * Use to add content after the left off canvas menu.
@@ -184,9 +184,11 @@ if ( ! function_exists( 'app_starter_off_canvas' ) ) {
 			/**
 			 *	Whether to use off canvas menu on right side or not.
 			 *
+			 * 	@param bool
+			 *
 			 *  @since 0.0.1
 			 */
-			if ( !do_action( 'app_starter_use_off_canvas_right') ) :
+			if ( apply_filters( 'app_starter_use_off_canvas_right', true ) === true ) :
 				/**
 				 * Use to add content after the right off canvas menu.
 				 *

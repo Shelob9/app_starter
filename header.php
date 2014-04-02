@@ -25,8 +25,8 @@
 			<div class="fixed">
 				<nav class="tab-bar">
 					<?php
-						/** This action is documented in inc/foundation.php */
-						if ( !do_action( 'app_starter_use_off_canvas_left') ) :
+						/** This filter is documented in inc/foundation.php */
+					if ( apply_filters( 'app_starter_use_off_canvas_left', true ) === true ) :
 					?>
 						<section class="left-small">
 							<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
@@ -40,8 +40,8 @@
 					</section>
 
 					<?php
-						/** This action is documented in inc/foundation.php */
-						if ( !do_action( 'app_starter_use_off_canvas_right') ) :
+						/** This filter is documented in inc/foundation.php */
+					if ( apply_filters( 'app_starter_use_off_canvas_right', true ) === true ) :
 					?>
 						<section class="right-small">
 							<a class="right-off-canvas-toggle menu-icon" ><span></span></a>
