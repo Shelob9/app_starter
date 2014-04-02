@@ -1,5 +1,6 @@
 <?php
 
+if ( ! function_exists( 'app_starter_primary_class' ) ) :
 /**
  * Sets the classes for #primary
  *
@@ -20,7 +21,9 @@ function app_starter_primary_class() {
 	echo $classes;
 
 }
+endif;
 
+if ( ! function_exists( 'app_starter_main_class' ) ) :
 /**
  * Sets the classes for #main
  *
@@ -44,7 +47,9 @@ function app_starter_main_class() {
 	echo $classes;
 
 }
+endif;
 
+if ( ! function_exists( 'app_starter_sidebar_class' ) ) :
 /**
  * Sets the classes for #secondary
  *
@@ -65,7 +70,9 @@ function app_starter_sidebar_class() {
 	echo $classes;
 
 }
+endif;
 
+if ( ! function_exists( 'app_starter_footer_class' ) ) :
 /**
  * Sets the classes for .site-footer
  *
@@ -85,7 +92,9 @@ function app_starter_footer_class() {
 
 	echo $classes;
 }
+endif;
 
+if ( ! function_exists( 'app_starter_site_info_class' ) ) :
 /**
  * Sets the classes for .site-info
  *
@@ -105,7 +114,9 @@ function app_starter_site_info_class() {
 
 	echo $classes;
 }
+endif;
 
+if ( ! function_exists( 'app_starter_foundation_enqueue' ) ) :
 /**
  * Enqueue Foundation JS
  *
@@ -113,33 +124,81 @@ function app_starter_site_info_class() {
  */
 add_action( 'wp_enqueue_scripts', 'app_starter_foundation_enqueue', 20 );
 function app_starter_foundation_enqueue() {
-	wp_enqueue_script( 'foundation', get_stylesheet_directory_uri().'/js/foundation.min.js', array( 'jquery' ), '5.2.1', true );
+	wp_enqueue_script( 'foundation', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ), '5.2.1', true );
 }
+endif;
 
-/**
- * Off Canvas menus
- *
- * @since 0.0.1
- */
-function app_starter_off_canvas() {
+if ( ! function_exists( 'app_starter_off_canvas' ) ) {
 	/**
-	 *	Whether to use off canvas menu on right side or not.
+	 * Off Canvas menus
 	 *
-	 *  @since 0.0.1
+	 * @since 0.0.1
 	 */
-	if ( !do_action( 'app_starter_use_off_canvas_left') ) :
-
+	function app_starter_off_canvas() {
 		/**
-		 * Use to add content after the left off canvas menu.
+		 *	Whether to use off canvas menu on right side or not.
 		 *
-		 * @since 0.0.1
+		 *  @since 0.0.1
 		 */
-		do_action( 'app_starter_before_off_canvas_left');
-	?>
-		<aside class="left-off-canvas-menu">
+		if ( !do_action( 'app_starter_use_off_canvas_left') ) :
+
+			/**
+			 * Use to add content after the left off canvas menu.
+			 *
+			 * @since 0.0.1
+			 */
+			do_action( 'app_starter_before_off_canvas_left');
+		?>
+			<aside class="left-off-canvas-menu">
+				<?php
+				$defaults = array(
+					'theme_location'  => 'off-canvas-left',
+					'menu'            => '',
+					'container'       => 'false',
+					'container_class' => '',
+					'container_id'    => '',
+					'menu_class'      => 'off-canvas-list"',
+					'menu_id'         => '',
+					'echo'            => true,
+					'fallback_cb'     => 'wp_page_menu',
+					'before'          => '',
+					'after'           => '',
+					'link_before'     => '',
+					'link_after'      => '',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					'depth'           => 1,
+					'walker'          => ''
+				);
+				wp_nav_menu( $defaults );
+
+				/**
+				 * Use to add content after the left off canvas menu.
+				 *
+				 * @since 0.0.1
+				 */
+				do_action( 'app_starter_after_off_canvas_left');
+				?>
+			</aside><!--/aside.left-off-canvas-menu -->
+		<?php
+			endif;
+			/**
+			 *	Whether to use off canvas menu on right side or not.
+			 *
+			 *  @since 0.0.1
+			 */
+			if ( !do_action( 'app_starter_use_off_canvas_right') ) :
+				/**
+				 * Use to add content after the right off canvas menu.
+				 *
+				 * @since 0.0.1
+				 */
+				do_action( 'app_starter_before_off_canvas_right');
+		?>
+
+		<aside class="right-off-canvas-menu">
 			<?php
 			$defaults = array(
-				'theme_location'  => 'off-canvas-left',
+				'theme_location'  => 'off-canvas-right',
 				'menu'            => '',
 				'container'       => 'false',
 				'container_class' => '',
@@ -159,59 +218,14 @@ function app_starter_off_canvas() {
 			wp_nav_menu( $defaults );
 
 			/**
-			 * Use to add content after the left off canvas menu.
-			 *
-			 * @since 0.0.1
-			 */
-			do_action( 'app_starter_after_off_canvas_left');
-			?>
-		</aside><!--/aside.left-off-canvas-menu -->
-	<?php
-		endif;
-		/**
-		 *	Whether to use off canvas menu on right side or not.
-		 *
-		 *  @since 0.0.1
-		 */
-		if ( !do_action( 'app_starter_use_off_canvas_right') ) :
-			/**
 			 * Use to add content after the right off canvas menu.
 			 *
 			 * @since 0.0.1
 			 */
-			do_action( 'app_starter_before_off_canvas_right');
-	?>
-
-	<aside class="right-off-canvas-menu">
-		<?php
-		$defaults = array(
-			'theme_location'  => 'off-canvas-right',
-			'menu'            => '',
-			'container'       => 'false',
-			'container_class' => '',
-			'container_id'    => '',
-			'menu_class'      => 'off-canvas-list"',
-			'menu_id'         => '',
-			'echo'            => true,
-			'fallback_cb'     => 'wp_page_menu',
-			'before'          => '',
-			'after'           => '',
-			'link_before'     => '',
-			'link_after'      => '',
-			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			'depth'           => 1,
-			'walker'          => ''
-		);
-		wp_nav_menu( $defaults );
-
-		/**
-		 * Use to add content after the right off canvas menu.
-		 *
-		 * @since 0.0.1
-		 */
-		do_action( 'app_starter_after_off_canvas_right');
-		?>
-	</aside><!--/aside.left-off-canvas-menu -->
-<?php
-	endif;
+			do_action( 'app_starter_after_off_canvas_right');
+			?>
+		</aside><!--/aside.left-off-canvas-menu -->
+	<?php
+		endif;
+	}
 }

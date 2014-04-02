@@ -137,6 +137,7 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/foundation.php';
 
+if ( ! function_exists( 'app_starter_sidebar' ) ) :
 /**
  * Sidebar function
  *
@@ -160,3 +161,4 @@ function app_starter_sidebar( $name = null ) {
 		get_sidebar( $name );
 	}
 }
+endif;
