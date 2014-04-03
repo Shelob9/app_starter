@@ -179,7 +179,7 @@ function app_starter_sidebar( $name = null ) {
 	 *
 	 * @since 0.0.1
 	 */
-	if ( apply_filters( 'app_starter_no_sidebar', true ) === true ) {
+	if ( apply_filters( 'app_starter_no_sidebar', false ) === false ) {
 		get_sidebar( $name );
 	}
 }
