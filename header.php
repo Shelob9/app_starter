@@ -37,7 +37,7 @@
 
 					<section class="middle tab-bar-section">
 						<?php
-						$middle = '<h1 class="site-title"><a href="'.esc_url( home_url( '/' ) ).'" rel="home">'.bloginfo( 'name' ).'</a></h1>';
+						$middle = '<h1 class="site-title"><a href="'.esc_url( home_url( '/' ) ).'" rel="home">'.get_bloginfo( 'name' ).'</a></h1>';
 						/**
 						 * Add or alter the content in the middle of the tab-bar
 						 *
