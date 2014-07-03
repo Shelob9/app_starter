@@ -36,7 +36,22 @@
 					?>
 
 					<section class="middle tab-bar-section">
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php
+						$middle = '<h1 class="site-title"><a href="'.esc_url( home_url( '/' ) ).'" rel="home">'.bloginfo( 'name' ).'</a></h1>';
+						/**
+						 * Add or alter the content in the middle of the tab-bar
+						 *
+						 * To output nothing return an empty string
+						 *
+						 * @param string $middle Content
+						 *
+						 * @return string
+						 */
+						$middle = apply_filters( 'app_starter_tab_bar_middle', $middle );
+						if ( is_string( $middle ) ) {
+							echo $middle;
+						}
+						?>
 					</section>
 
 					<?php
