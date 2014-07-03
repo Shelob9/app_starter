@@ -22,12 +22,36 @@ app_starter_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
+				/**
+				 * Override what content part is used for main item view
+				 *
+				 * @param string|null $view Path to the view relative to theme/child theme
+				 *
+				 * @return file name.
+				 *
+				 * @since 0.0.2
+				 */
+				$view = apply_filters( 'ht_dms_content_part_view', null );
+				if ( is_null( $view ) ) {
 					$type = get_post_type();
-					if ( $type === false || $type === 'post' || (is_singular( $type ) && ! file_exists( 'content-'.$type ) ) ) {
+					if ( $type === FALSE || $type === 'post' || ( is_singular( $type ) && !file_exists( 'content-' . $type ) ) ) {
 						$type = 'single';
 					}
 
 					get_template_part( 'content', $type );
+				}
+				else {
+
+					if ( function_exists( 'pods_view' ) ) {
+						var_dump( $view );
+						pods_view( $view, null, app_starter_cache_expires(), app_starter_cache_mode() );
+					}
+					else {
+
+						include( trailingslashit( get_stylesheet_directory() ).$view );
+					}
+
+				}
 				?>
 
 			<?php endwhile; ?>
