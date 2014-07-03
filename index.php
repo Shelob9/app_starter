@@ -11,7 +11,7 @@
  * @package app_starter
  */
 
-get_header(); ?>
+app_starter_header(); ?>
 
 	<div id="primary" class="content-area <?php app_starter_primary_class(); ?>">
 		<main id="main" class="site-main <?php app_starter_main_class(); ?>" role="main">
@@ -43,4 +43,4 @@ get_header(); ?>
 		<?php app_starter_sidebar(); ?>
 	</div><!-- #primary -->
 
-<?php get_footer(); ?>
+<?php app_starter_footer(); ?>

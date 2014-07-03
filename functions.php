@@ -157,30 +157,117 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/foundation.php';
 
+
+
 if ( ! function_exists( 'app_starter_sidebar' ) ) :
-/**
- * Sidebar function
- *
- * @since 0.0.1
- */
-function app_starter_sidebar( $name = null ) {
 	/**
-	 * Filter to override which sidebar we are using.
-	 *
-	 * @see https://core.trac.wordpress.org/ticket/26636
+	 * Better sidebar function
 	 *
 	 * @since 0.0.1
 	 */
-	$name = apply_filters('app_starter_get_sidebar', $name);
-	/**
-	 * Filter to prevent sidebar
-	 *
-	 * @param bool
-	 *
-	 * @since 0.0.1
-	 */
-	if ( apply_filters( 'app_starter_no_sidebar', false ) === false ) {
-		get_sidebar( $name );
+	function app_starter_sidebar( $name = null, $expires = DAY_IN_SECONDS, $cache_mode = 'cache' ) {
+		/**
+		 * Filter to override which sidebar we are using.
+		 *
+		 * @see https://core.trac.wordpress.org/ticket/26636
+		 *
+		 * @since 0.0.1
+		 */
+		$name = apply_filters( 'app_starter_get_sidebar', $name );
+
+		/**
+		 * Filter to prevent sidebar
+		 *
+		 * @param bool
+		 *
+		 * @since 0.0.1
+		 */
+		if ( apply_filters( 'app_starter_no_sidebar', false ) === false ) {
+			if ( function_exists( 'pods_view' ) ) {
+				$name = 'sidebar.php';
+				if ( ! is_null( $name ) && file_exists( 'sidebar-'.$name.'.php' ) ) {
+						$name = 'sidebar-'.$name.'.php';
+					}
+
+				pods_view( $name, null, $expires, $cache_mode );
+			}
+			else {
+				get_sidebar( $name );
+
+			}
+
+		}
+
 	}
-}
+endif;
+
+if ( ! function_exists( 'app_starter_header' ) ) :
+	/**
+	 * Better header function
+	 *
+	 * @param 	string	$name	Name of header.
+	 *
+	 * @returns	string			The header.
+	 *
+	 * @since 0.0.2
+	 */
+	function app_starter_header( $name = null, $expires = DAY_IN_SECONDS, $cache_mode = 'cache' ) {
+		/**
+		 * Override which header is returned;
+		 *
+		 * @param string $name Name of header.
+		 *
+		 * @since 0.0.2
+		 */
+		$name = apply_filters( 'app_starter_header', $name );
+
+		if ( function_exists( 'pods_view' ) ) {
+			$name = 'header.php';
+			if ( ! is_null( $name ) && file_exists( 'header-'.$name.'.php' ) ) {
+				$name = 'header-'.$name.'.php';
+			}
+
+			pods_view( $name, null, $expires, $cache_mode );
+		}
+		else {
+			get_header( $name );
+
+		}
+
+	}
+endif;
+
+if ( ! function_exists( 'app_starter_footer' ) ) :
+	/**
+	 * Better footer function
+	 *
+	 * @param 	string	$name	Name of footer.
+	 *
+	 * @returns	string			The footer.
+	 *
+	 * @since 0.0.2
+	 */
+	function app_starter_footer( $name = null, $expires = DAY_IN_SECONDS, $cache_mode = 'cache' ) {
+
+		/**
+		 * Override which footer is returned;
+		 *
+		 * @param string $name Name of footer.
+		 *
+		 * @since 0.0.2
+		 */
+		$name = apply_filters( 'app_starter_footer', $name );
+		if ( function_exists( 'pods_view' ) ) {
+			$name = 'footer.php';
+			if ( ! is_null( $name ) && file_exists( 'footer-'.$name.'.php' ) ) {
+				$name = 'footer-'.$name.'.php';
+			}
+
+			pods_view( $name, null, $expires, $cache_mode );
+		}
+		else {
+			get_header( $name );
+
+		}
+	}
 endif;
