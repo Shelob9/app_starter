@@ -165,7 +165,7 @@ if ( ! function_exists( 'app_starter_sidebar' ) ) :
 	 *
 	 * @since 0.0.1
 	 */
-	function app_starter_sidebar( $name = null, $expires = DAY_IN_SECONDS, $cache_mode = 'cache' ) {
+	function app_starter_sidebar( $name = null ) {
 		/**
 		 * Filter to override which sidebar we are using.
 		 *
@@ -189,7 +189,7 @@ if ( ! function_exists( 'app_starter_sidebar' ) ) :
 						$name = 'sidebar-'.$name.'.php';
 					}
 
-				pods_view( $name, null, $expires, $cache_mode );
+				pods_view( $name, null, app_starter_cache_expires(), app_starter_cache_mode() );
 			}
 			else {
 				get_sidebar( $name );
@@ -211,7 +211,7 @@ if ( ! function_exists( 'app_starter_header' ) ) :
 	 *
 	 * @since 0.0.2
 	 */
-	function app_starter_header( $name = null, $expires = DAY_IN_SECONDS, $cache_mode = 'cache' ) {
+	function app_starter_header( $name = null ) {
 		/**
 		 * Override which header is returned;
 		 *
@@ -227,7 +227,7 @@ if ( ! function_exists( 'app_starter_header' ) ) :
 				$name = 'header-'.$name.'.php';
 			}
 
-			pods_view( $name, null, $expires, $cache_mode );
+			pods_view( $name, null, app_starter_cache_expires(), app_starter_cache_mode() );
 		}
 		else {
 			get_header( $name );
@@ -247,7 +247,7 @@ if ( ! function_exists( 'app_starter_footer' ) ) :
 	 *
 	 * @since 0.0.2
 	 */
-	function app_starter_footer( $name = null, $expires = DAY_IN_SECONDS, $cache_mode = 'cache' ) {
+	function app_starter_footer( $name = null ) {
 
 		/**
 		 * Override which footer is returned;
@@ -263,7 +263,7 @@ if ( ! function_exists( 'app_starter_footer' ) ) :
 				$name = 'footer-'.$name.'.php';
 			}
 
-			pods_view( $name, null, $expires, $cache_mode );
+			pods_view( $name, null, app_starter_cache_expires(), app_starter_cache_mode() );
 		}
 		else {
 			get_header( $name );
@@ -271,3 +271,61 @@ if ( ! function_exists( 'app_starter_footer' ) ) :
 		}
 	}
 endif;
+
+/**
+ * Get the default cache expiration length
+ *
+ * @return string
+ *
+ * @since 0.0.2
+ */
+function app_starter_cache_expires() {
+	/**
+	 * Filter to set the cache expiration
+	 *
+	 * Note: Not used if Pods isn't active.
+	 *
+	 * @see http://pods.io/docs/code/pods-view/
+	 *
+	 * @param null|int $cache_expires If null, not used. To use set a time span in seconds.
+	 *
+	 * @return null|int The cache expiration length
+	 *
+	 * @since 0.0.1
+	 */
+	if ( !is_null ( $cache_expires = apply_filters( 'app_starter_cache_expires', null ) ) ) {
+		return $cache_expires;
+	}
+
+	return get_option( 'app_starter_cache_expires', DAY_IN_SECONDS );
+
+}
+
+/**
+ * Get the default cache expiration mode
+ *
+ * @return string
+ *
+ * @since 0.0.2
+ */
+function app_starter_cache_mode() {
+	/**
+	 * Filter to set the cache mode
+	 *
+	 * Note: Not used if Pods isn't active.
+	 *
+	 * @see http://pods.io/docs/code/pods-view/
+	 *
+	 * @param null|string $cache_mode If null, not used. To use set to cache|transient|site_transient
+	 *
+	 * @return null|string The cache mode for pods_view
+	 *
+	 * @since 0.0.1
+	 */
+	if ( !is_null ( $cache_expires = apply_filters( 'app_starter_cache_mode', null ) ) ) {
+		return $cache_expires;
+	}
+
+	return get_option( 'app_starter_cache_mode', 'cache' );
+
+}
