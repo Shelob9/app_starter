@@ -11,6 +11,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/app_starter.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/app_starter.min.js",
+		"outputAbbreviatedPath": "\/min\/app_starter.min-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/comments.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1471,7 +1482,7 @@
 			"type": 1
 			},
 		{
-			"followForSyntaxChecking": 0,
+			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/js\/ajaxify.js",
 			"position": 1,
 			"type": 1
