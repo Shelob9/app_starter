@@ -31,7 +31,7 @@ app_starter_header(); ?>
 				 *
 				 * @since 0.0.2
 				 */
-				$view = apply_filters( 'ht_dms_content_part_view', null );
+				$view = apply_filters( 'app_starter_content_part_view', null );
 				if ( is_null( $view ) ) {
 					$type = get_post_type();
 					if ( $type === FALSE || $type === 'post' || ( is_singular( $type ) && !file_exists( 'content-' . $type ) ) ) {
