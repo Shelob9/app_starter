@@ -115,12 +115,12 @@ function app_starter_scripts() {
 	 *
 	 * @param bool $use Whether to load theme's CSS.
 	 *
-	 * @retrun bool
+	 * @return bool
 	 *
 	 * @since 0.0.2.
 	 */
 	if ( apply_filters( 'app_starter_use_main_css', true ) ) {
-		wp_enqueue_style( 'app_starter-style', trailingslashit( get_stylesheet_directory_uri() ).'css/app_starter.min.css', array(), APP_STARTER_VERSION );
+		wp_enqueue_style( 'app_starter-style', trailingslashit( get_stylesheet_directory_uri() ).'css/app_starter.css', array(), APP_STARTER_VERSION );
 	}
 
 	wp_enqueue_script( 'app_starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), APP_STARTER_VERSION, true );
