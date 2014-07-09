@@ -124,7 +124,14 @@ if ( ! function_exists( 'app_starter_foundation_enqueue' ) ) :
  */
 add_action( 'wp_enqueue_scripts', 'app_starter_foundation_enqueue', 20 );
 function app_starter_foundation_enqueue() {
-	wp_enqueue_script( 'foundation', get_template_directory_uri().'/js/foundation.min.js', array( 'jquery' ), '5.2.1', true );
+
+	/**
+	 * This filter is documented in functions.php
+	 */
+	if ( apply_filters( 'app_starter_use_main_js', true ) ) {
+		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/js/foundation.min.js', array ( 'jquery' ), '5.2.1', TRUE );
+	}
+
 }
 endif;
 
