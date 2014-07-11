@@ -43,7 +43,6 @@ app_starter_header(); ?>
 				else {
 
 					if ( function_exists( 'pods_view' ) ) {
-						var_dump( $view );
 						pods_view( $view, null, app_starter_cache_expires(), app_starter_cache_mode() );
 					}
 					else {
