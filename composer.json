@@ -1,0 +1,26 @@
+{
+    "name" : "shelob9/app_starter",
+    "description" : "Starter theme for WordPress-Powered apps. Uses Foundation for UI.",
+    "type" : "wordpress-theme",
+    "keywords" : [ "foundation", "wordpress" ],
+    "license" : "GPL-2.0+",
+    "authors" : [
+        {
+            "name"      : "Josh Pollock",
+            "email"     : "josh@joshpress.net",
+            "homepage"  : "http://JoshPress.net",
+            "role"      : "Developer"
+        }
+    ],
+    "require" : {
+        "composer/installers"       : "~1.0.0",
+        "php"                       : ">=5.2.4"
+    },
+    "extra" : {
+        "installer-name" : "app-starter"
+    },
+    "support": {
+        "issues": "https://github.com/shelob9/app_starter/issues",
+        "source": "https://github.com/shelob9/app_starter"
+    }
+}
