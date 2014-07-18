@@ -25,7 +25,7 @@ app_starter_header(); ?>
 				/**
 				 * Override what content part is used for main item view
 				 *
-				 * @param string|null $view Path to the view relative to theme/child theme
+				 * @param string|null $view Path to the view relative to theme/child theme or the complete content to echo.
 				 *
 				 * @return file name.
 				 *
