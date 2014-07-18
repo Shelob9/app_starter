@@ -42,12 +42,17 @@ app_starter_header(); ?>
 				}
 				else {
 
-					if ( function_exists( 'pods_view' ) ) {
+					if ( function_exists( 'pods_view' ) && is_file( $view ) ) {
 						pods_view( $view, null, app_starter_cache_expires(), app_starter_cache_mode() );
 					}
 					else {
+						if ( is_file( $view ) ) {
+							include( trailingslashit( get_stylesheet_directory() ).$view );
+						}
+						else {
+							echo $view;
+						}
 
-						include( trailingslashit( get_stylesheet_directory() ).$view );
 					}
 
 				}
