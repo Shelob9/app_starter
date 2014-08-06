@@ -13,8 +13,8 @@
 
 app_starter_header(); ?>
 
-	<div id="primary" class="content-area <?php app_starter_primary_class(); ?>">
-		<main id="main" class="site-main <?php app_starter_main_class(); ?>" role="main">
+<div id="primary" class="content-area <?php app_starter_primary_class(); ?>">
+	<main id="main" class="site-main <?php app_starter_main_class(); ?>" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -32,6 +32,7 @@ app_starter_header(); ?>
 				 * @since 0.0.2
 				 */
 				$view = apply_filters( 'app_starter_content_part_view', null );
+
 				if ( is_null( $view ) ) {
 					$type = get_post_type();
 					if ( $type === FALSE || $type === 'post' || ( is_singular( $type ) && !file_exists( 'content-' . $type ) ) ) {
@@ -41,13 +42,24 @@ app_starter_header(); ?>
 					get_template_part( 'content', $type );
 				}
 				else {
-
-					if ( function_exists( 'pods_view' ) && is_file( $view ) ) {
+					/**
+					 * Filter to prevent theme from attempting to use pods_view() for the
+					 *
+					 * @since 0.0.2
+					 *
+					 * @param bool True to bypass, false to attempt to use it.
+					 */
+					$bypass_pods_view = apply_filters( 'app_starter_bypass_pods_view_in_index', false );
+					if ( $bypass_pods_view && function_exists( 'pods_view' ) && is_file( $view ) ) {
 						pods_view( $view, null, app_starter_cache_expires(), app_starter_cache_mode() );
 					}
 					else {
+
 						if ( is_file( $view ) ) {
-							include( trailingslashit( get_stylesheet_directory() ).$view );
+							if ( file_exists(trailingslashit( get_stylesheet_directory() ).$view  ) ) {
+								$view = trailingslashit( get_stylesheet_directory() ).$view;
+							}
+							include( $view );
 						}
 						else {
 							echo $view;
@@ -68,8 +80,8 @@ app_starter_header(); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
-		<?php app_starter_sidebar(); ?>
-	</div><!-- #primary -->
+	</main><!-- #main -->
+	<?php app_starter_sidebar(); ?>
+</div><!-- #primary -->
 
 <?php app_starter_footer(); ?>
