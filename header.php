@@ -20,53 +20,24 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<div class="off-canvas-wrap">
-		<div class="inner-wrap">
-			<div class="fixed">
-				<nav class="tab-bar">
-					<?php
-						/** This filter is documented in inc/foundation.php */
-					if ( apply_filters( 'app_starter_use_off_canvas_left', true ) === true ) :
-					?>
-						<section class="left-small">
-							<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-						</section>
-					<?php
-						endif;
-					?>
 
-					<section class="middle tab-bar-section">
-						<?php
-						$middle = '<h1 class="site-title"><a href="'.esc_url( home_url( '/' ) ).'" rel="home">'.get_bloginfo( 'name' ).'</a></h1>';
-						/**
-						 * Add or alter the content in the middle of the tab-bar
-						 *
-						 * To output nothing return an empty string
-						 *
-						 * @param string $middle Content
-						 *
-						 * @return string
-						 */
-						$middle = apply_filters( 'app_starter_tab_bar_middle', $middle );
-						if ( is_string( $middle ) ) {
-							echo $middle;
-						}
-						?>
-					</section>
-
-					<?php
-						/** This filter is documented in inc/foundation.php */
-					if ( apply_filters( 'app_starter_use_off_canvas_right', true ) === true ) :
-					?>
-						<section class="right-small">
-							<a class="right-off-canvas-toggle menu-icon" ><span></span></a>
-						</section>
-					<?php
-						endif;
-					?>
-				</nav>
-			</div><!--.fixed-->
-
-		<?php app_starter_off_canvas(); ?>
+	<?php
+		/**
+		 * Header content
+		 *
+		 * If false app_starter_start_off_canvas() is used.
+		 *
+		 * @param bool|string $header The header content or false for Off Canvas
+		 *
+		 * @since 0.0.1
+		 */
+		$header = apply_filters( 'app_starter_header', false  );
+		if ( ! $header ) {
+			echo app_starter_start_off_canvas();
+		}
+		else {
+			echo $header;
+		}
+	?>
 			<section class="main-section">
 				<div id="content" class="site-content">

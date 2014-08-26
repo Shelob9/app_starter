@@ -276,3 +276,75 @@ if ( apply_filters( 'app_starter_use_off_canvas_right', true ) === true ) {
 	} //endif !function_exists
 } //endif filter === true
 
+
+/**
+ * Markup to start Off Canvas
+ *
+ * @since 0.0.1
+ */
+function app_starter_start_off_canvas() {
+	?>
+	<div class="off-canvas-wrap">
+	<div class="inner-wrap">
+	<div class="fixed">
+		<nav class="tab-bar">
+			<?php
+			/** This filter is documented in inc/foundation.php */
+			if ( apply_filters( 'app_starter_use_off_canvas_left', true ) === true ) :
+				?>
+				<section class="left-small">
+					<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+				</section>
+			<?php
+			endif;
+			?>
+
+			<section class="middle tab-bar-section">
+				<?php
+				$middle = '<h1 class="site-title"><a href="'.esc_url( home_url( '/' ) ).'" rel="home">'.get_bloginfo( 'name' ).'</a></h1>';
+				/**
+				 * Add or alter the content in the middle of the tab-bar
+				 *
+				 * To output nothing return an empty string
+				 *
+				 * @param string $middle Content
+				 *
+				 * @return string
+				 */
+				$middle = apply_filters( 'app_starter_tab_bar_middle', $middle );
+				if ( is_string( $middle ) ) {
+					echo $middle;
+				}
+				?>
+			</section>
+
+			<?php
+			/** This filter is documented in inc/foundation.php */
+			if ( apply_filters( 'app_starter_use_off_canvas_right', true ) === true ) :
+				?>
+				<section class="right-small">
+					<a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+				</section>
+			<?php
+			endif;
+			?>
+		</nav>
+	</div><!--.fixed-->
+
+	<?php app_starter_off_canvas(); ?>
+	<?php
+}
+
+/**
+ * Markup to end Off Canvas
+ *
+ * @since 0.0.1
+ */
+function app_starter_end_off_canvas() {
+	?>
+		<a class="exit-off-canvas"></a>
+
+	</div><!--.inner-wrap-->
+	</div><!--.off-canvas-wrap-->
+	<?php
+}

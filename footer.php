@@ -25,10 +25,22 @@
 					?>
 				</div><!-- .site-info -->
 			</footer><!-- #colophon -->
-		<a class="exit-off-canvas"></a>
-
-		</div><!--.inner-wrap-->
-	</div><!--.off-canvas-wrap-->
+		<?php
+			/**
+			 * Output content before end of #page.
+			 *
+			 * @params bool|string $footer. String to output or false. If false app_starter_end_off_canvas() is used.
+			 *
+			 * @since 0.0.1
+			 */
+			$footer = apply_filters( 'app_starter_end_page', false );
+			if ( ! $footer ) {
+				app_starter_end_off_canvas();
+			}
+			else {
+				echo $footer;
+			}
+		?>
 
 </div><!-- #page -->
 
