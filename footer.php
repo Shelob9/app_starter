@@ -38,7 +38,10 @@
 				app_starter_end_off_canvas();
 			}
 			else {
-				echo $footer;
+				if ( is_string( $footer ) ) {
+					echo $footer;
+				}
+
 			}
 		?>
 
